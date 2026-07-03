@@ -134,6 +134,15 @@
     footer .contact { color:var(--ink-500) !important; }
   }
 </style>
+<style>
+.reveal .body-col{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1);}
+.reveal .lbl-col{opacity:0;transition:opacity .55s ease;}
+.reveal.in .body-col{opacity:1;transform:none;}
+.reveal.in .lbl-col{opacity:1;}
+@media (prefers-reduced-motion:reduce){.reveal .body-col,.reveal .lbl-col{opacity:1 !important;transform:none !important;transition:none !important;}}
+@media print{.reveal .body-col,.reveal .lbl-col{opacity:1 !important;transform:none !important;}}
+</style>
+<noscript><style>.reveal .body-col,.reveal .lbl-col{opacity:1 !important;transform:none !important;}</style></noscript>
 </head>
 <body>
 
@@ -204,7 +213,7 @@
 </header>
 
 <section id="why" style="background:var(--paper-50);">
-  <div class="wrap sec">
+  <div class="wrap sec reveal">
     <div class="lbl-col"><div class="sticky">
       <span class="eyebrow">Why Kinectiv</span>
       <h2>A marketing-first partner for the way people find you now</h2>
@@ -221,7 +230,7 @@
 </section>
 
 <section id="vision" style="background:var(--paper-100);">
-  <div class="wrap sec">
+  <div class="wrap sec reveal">
     <div class="lbl-col"><div class="sticky">
       <span class="eyebrow">Our Vision</span>
       <h2>Our vision for the project</h2>
@@ -236,7 +245,7 @@
 </section>
 
 <section id="discovery" style="background:var(--paper-50);">
-  <div class="wrap sec">
+  <div class="wrap sec reveal">
     <div class="lbl-col"><div class="sticky">
       <span class="eyebrow">Discovery</span>
       <h2>Learning, analyzing, and scoping</h2>
@@ -267,7 +276,7 @@
 </section>
 
 <section id="approach" style="background:var(--paper-100);">
-  <div class="wrap sec">
+  <div class="wrap sec reveal">
     <div class="lbl-col"><div class="sticky">
       <span class="eyebrow">Project Approach</span>
       <h2>How we&rsquo;ll build it</h2>
@@ -297,7 +306,7 @@
 </section>
 
 <section id="process" style="background:var(--paper-50);">
-  <div class="wrap sec">
+  <div class="wrap sec reveal">
     <div class="lbl-col"><div class="sticky">
       <span class="eyebrow">The Process</span>
       <h2>Website process overview</h2>
@@ -316,7 +325,7 @@
 </section>
 
 <section id="ai-search" style="background:var(--paper-100);">
-  <div class="wrap sec">
+  <div class="wrap sec reveal">
     <div class="lbl-col"><div class="sticky">
       <span class="eyebrow">AI Search &amp; Data Strategy</span>
       <h2>Built to be found by Google and by AI</h2>
@@ -341,7 +350,7 @@
 </section>
 
 <section id="work" style="background:var(--paper-50);">
-  <div class="wrap sec">
+  <div class="wrap sec reveal">
     <div class="lbl-col"><div class="sticky">
       <span class="eyebrow">Our Work</span>
       <h2>Examples of how we accomplish great web design</h2>
@@ -380,7 +389,7 @@
 </section>
 
 <section id="deliverables" style="background:var(--paper-100);">
-  <div class="wrap sec">
+  <div class="wrap sec reveal">
     <div class="lbl-col"><div class="sticky">
       <span class="eyebrow">To Summarize</span>
       <h2>Deliverables &amp; scope</h2>
@@ -413,7 +422,7 @@
 </section>
 
 <section id="investment" style="background:var(--paper-50);">
-  <div class="wrap sec">
+  <div class="wrap sec reveal">
     <div class="lbl-col"><div class="sticky">
       <span class="eyebrow">Your Investment</span>
       <h2>Investment</h2>
@@ -486,6 +495,9 @@ section[id],footer[id]{scroll-margin-top:76px;}
 </style>
 <script>
 (function(){var n=document.querySelector('nav');if(!n)return;var t=n.querySelector('.nav-toggle');if(t)t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});n.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');if(t)t.setAttribute('aria-expanded','false');});});})();
+</script>
+<script>
+(function(){var els=document.querySelectorAll(".reveal");if(!els.length)return;var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;if(reduce||!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in");});return;}var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{rootMargin:"0px 0px -8% 0px",threshold:0.08});els.forEach(function(e){io.observe(e);});})();
 </script>
 </body>
 </html>
